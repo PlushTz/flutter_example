@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 /// Author: lijt
 /// Created on 2025/11/7
 /// Email: lijt@eetrust.com
-class TestDialog extends StatelessWidget {
-  const TestDialog({super.key});
+class AlertDialogExample extends StatelessWidget {
+  const AlertDialogExample({super.key});
 
   @override
   Widget build(BuildContext context) {

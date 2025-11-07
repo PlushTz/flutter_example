@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 /// Author: lijt
 /// Created on 2025/11/7
 /// Email: lijt@eetrust.com
-class NavigatorByName extends StatelessWidget {
+class Navigators extends StatelessWidget {
   final String title;
 
-  const NavigatorByName({super.key, required this.title});
+  const Navigators({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

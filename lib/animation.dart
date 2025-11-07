@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 /// Author: lijt
 /// Created on 2025/11/7
 /// Email: lijt@eetrust.com
-class FirstRoute extends StatelessWidget {
+class Animations extends StatelessWidget {
   final String title;
 
-  const FirstRoute({super.key, required this.title});
+  const Animations({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
