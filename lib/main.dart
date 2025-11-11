@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_example/dialogs.dart';
+import 'package:flutter_example/floating_app_bar.dart';
 import 'package:flutter_example/layout.dart';
 import 'package:flutter_example/navigators.dart';
 import 'package:flutter_example/uifield.dart';
@@ -43,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Container(
-          alignment: Alignment.center,
+          alignment: Alignment.topCenter,
           child: SingleChildScrollView(
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: 10),
@@ -71,9 +72,7 @@ class ContentState extends StatelessWidget {
         // spacing: 20,
         children: <Widget>[
           OutlinedButton(
-            onPressed: () {
-
-            },
+            onPressed: () {},
             style: OutlinedButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(
@@ -126,8 +125,9 @@ class ContentState extends StatelessWidget {
                   UiField.ROUNDED_RECTANGLE_BORDER_RADIUS,
                 ),
               ),
+              backgroundColor: Colors.amber[500],
             ),
-            child: Text('Navigators'),
+            child: Text('Navigators', style: TextStyle(color: Colors.white)),
           ),
           ElevatedButton(
             onPressed: () => {
@@ -142,8 +142,9 @@ class ContentState extends StatelessWidget {
                   UiField.ROUNDED_RECTANGLE_BORDER_RADIUS,
                 ),
               ),
+              backgroundColor: Colors.deepOrange[700],
             ),
-            child: Text('loadUrl'),
+            child: Text('loadUrl', style: TextStyle(color: Colors.white)),
           ),
           ElevatedButton(
             onPressed: () => {
@@ -158,8 +159,29 @@ class ContentState extends StatelessWidget {
                   UiField.ROUNDED_RECTANGLE_BORDER_RADIUS,
                 ),
               ),
+              backgroundColor: Colors.deepPurple[700],
             ),
-            child: Text('layout'),
+            child: Text('layout', style: TextStyle(color: Colors.white)),
+          ),
+          ElevatedButton(
+            onPressed: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FloatingAppBarWidget()),
+              ),
+            },
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  UiField.ROUNDED_RECTANGLE_BORDER_RADIUS,
+                ),
+              ),
+              backgroundColor: Colors.black54,
+            ),
+            child: Text(
+              'floating app bar',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ],
       ),
