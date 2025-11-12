@@ -24,9 +24,7 @@ class AlertDialogExample extends StatelessWidget {
             scale: 1.0,
           ),
           ElevatedButton(
-            onPressed: () => {
-              _showAlertDialog(context)
-            },
+            onPressed: () => {_showAlertDialog(context)},
             child: Text('弹窗'),
           ),
         ],
@@ -45,14 +43,44 @@ class AlertDialogExample extends StatelessWidget {
           ),
         ),
         actions: [
-          CupertinoDialogAction(child: Text('确定'), onPressed: () => {
-            Navigator.of(context).pop()
-          }),
-          CupertinoDialogAction(child: Text('取消'), onPressed: () => {
-            Navigator.of(context).pop()
-          }),
+          CupertinoDialogAction(
+            child: Text('确定'),
+            onPressed: () => {Navigator.of(context).pop()},
+          ),
+          CupertinoDialogAction(
+            child: Text('取消'),
+            onPressed: () => {Navigator.of(context).pop()},
+          ),
         ],
       ),
     );
   }
+}
+
+class AlertDialogUtil {
+  static void showAlertDialog(BuildContext context) {
+    showCupertinoDialog(
+      context: context,
+      builder: (BuildContext context) => CupertinoAlertDialog(
+        title: Text('提示'),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[Text('是否要删除？'), Text('一旦删除数据不可恢复!')],
+          ),
+        ),
+        actions: [
+          CupertinoDialogAction(
+            child: Text('确定'),
+            onPressed: () => {Navigator.of(context).pop()},
+          ),
+          CupertinoDialogAction(
+            child: Text('取消'),
+            onPressed: () => {Navigator.of(context).pop()},
+          ),
+        ],
+      ),
+    );
+  }
+
+  AlertDialogUtil();
 }

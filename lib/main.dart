@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/dialogs.dart';
-import 'package:flutter_example/floating_app_bar.dart';
-import 'package:flutter_example/layout.dart';
-import 'package:flutter_example/navigators.dart';
-import 'package:flutter_example/uifield.dart';
+import 'package:flutter_plush/dialogs.dart';
+import 'package:flutter_plush/floating_app_bar.dart';
+import 'package:flutter_plush/layout.dart';
+import 'package:flutter_plush/navigators.dart';
+import 'package:flutter_plush/scrolling_parallax_effect.dart';
+import 'package:flutter_plush/ui_field.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 void main() {
@@ -16,11 +17,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Plush',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Plush'),
     );
   }
 }
@@ -76,7 +77,7 @@ class ContentState extends StatelessWidget {
             style: OutlinedButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(
-                  UiField.ROUNDED_RECTANGLE_BORDER_RADIUS,
+                  UiField.roundedRectangleBorderRadius,
                 ),
               ),
             ),
@@ -87,27 +88,24 @@ class ContentState extends StatelessWidget {
             style: FilledButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(
-                  UiField.ROUNDED_RECTANGLE_BORDER_RADIUS,
+                  UiField.roundedRectangleBorderRadius,
                 ),
               ),
+              backgroundColor: Colors.deepPurple,
             ),
-            child: Text('FilledButton'),
+            child: Text('FilledButton', style: TextStyle(color: Colors.white)),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(
-                  UiField.ROUNDED_RECTANGLE_BORDER_RADIUS,
+                  UiField.roundedRectangleBorderRadius,
                 ),
               ),
               fixedSize: const Size.fromHeight(0),
-              backgroundColor: Colors.deepOrange,
+              backgroundColor: Colors.deepPurple,
             ),
-            onPressed: () => {
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => AlertDialogExample()),
-              ),
-            },
+            onPressed: () => {AlertDialogUtil.showAlertDialog(context)},
             child: Text('Dialog', style: TextStyle(color: Colors.white)),
           ),
           ElevatedButton(
@@ -122,27 +120,27 @@ class ContentState extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(
-                  UiField.ROUNDED_RECTANGLE_BORDER_RADIUS,
+                  UiField.roundedRectangleBorderRadius,
                 ),
               ),
-              backgroundColor: Colors.amber[500],
+              backgroundColor: Colors.deepPurple,
             ),
             child: Text('Navigators', style: TextStyle(color: Colors.white)),
           ),
           ElevatedButton(
             onPressed: () => {
               launchUrlString(
-                'http://www.baidu.com',
+                'https://www.baidu.com',
                 mode: LaunchMode.inAppWebView,
               ),
             },
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(
-                  UiField.ROUNDED_RECTANGLE_BORDER_RADIUS,
+                  UiField.roundedRectangleBorderRadius,
                 ),
               ),
-              backgroundColor: Colors.deepOrange[700],
+              backgroundColor: Colors.deepPurple,
             ),
             child: Text('loadUrl', style: TextStyle(color: Colors.white)),
           ),
@@ -156,10 +154,10 @@ class ContentState extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(
-                  UiField.ROUNDED_RECTANGLE_BORDER_RADIUS,
+                  UiField.roundedRectangleBorderRadius,
                 ),
               ),
-              backgroundColor: Colors.deepPurple[700],
+              backgroundColor: Colors.deepPurple,
             ),
             child: Text('layout', style: TextStyle(color: Colors.white)),
           ),
@@ -173,13 +171,33 @@ class ContentState extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(
-                  UiField.ROUNDED_RECTANGLE_BORDER_RADIUS,
+                  UiField.roundedRectangleBorderRadius,
                 ),
               ),
-              backgroundColor: Colors.black54,
+              backgroundColor: Colors.deepPurple,
             ),
             child: Text(
               'floating app bar',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ParallaxRecipe()),
+              ),
+            },
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  UiField.roundedRectangleBorderRadius,
+                ),
+              ),
+              backgroundColor: Colors.deepPurple,
+            ),
+            child: Text(
+              'scrolling parallax effect',
               style: TextStyle(color: Colors.white),
             ),
           ),
