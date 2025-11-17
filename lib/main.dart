@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plush/dialogs.dart';
-import 'package:flutter_plush/floating_app_bar.dart';
-import 'package:flutter_plush/layout.dart';
-import 'package:flutter_plush/navigators.dart';
-import 'package:flutter_plush/scrolling_parallax_effect.dart';
-import 'package:flutter_plush/ui_field.dart';
+import 'package:flutter_plush/domain/models/routers/todo.dart';
+import 'package:flutter_plush/ui/dialogs/widgets/dialogs.dart';
+import 'package:flutter_plush/ui/floating_app_bar/widgets/floating_app_bar.dart';
+import 'package:flutter_plush/ui/layouts/widgets/layout.dart';
+import 'package:flutter_plush/ui/routers/widgets/first_route.dart';
+import 'package:flutter_plush/ui/routers/widgets/list_view_route.dart';
+import 'package:flutter_plush/ui/scrolling_parallax_effect/widgets/scrolling_parallax_effect.dart';
+import 'package:flutter_plush/fields/ui_field.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 void main() {
@@ -80,8 +82,12 @@ class ContentState extends StatelessWidget {
                   UiField.roundedRectangleBorderRadius,
                 ),
               ),
+              backgroundColor: Colors.deepPurple,
             ),
-            child: Text('OutlinedButton'),
+            child: Text(
+              'OutlinedButton',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
           FilledButton(
             onPressed: () {},
@@ -107,25 +113,6 @@ class ContentState extends StatelessWidget {
             ),
             onPressed: () => {AlertDialogUtil.showAlertDialog(context)},
             child: Text('Dialog', style: TextStyle(color: Colors.white)),
-          ),
-          ElevatedButton(
-            onPressed: () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Navigators(title: title),
-                ),
-              ),
-            },
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                  UiField.roundedRectangleBorderRadius,
-                ),
-              ),
-              backgroundColor: Colors.deepPurple,
-            ),
-            child: Text('Navigators', style: TextStyle(color: Colors.white)),
           ),
           ElevatedButton(
             onPressed: () => {
@@ -200,6 +187,42 @@ class ContentState extends StatelessWidget {
               'scrolling parallax effect',
               style: TextStyle(color: Colors.white),
             ),
+          ),
+          ElevatedButton(
+            onPressed: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FirstRoute()),
+              ),
+            },
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  UiField.roundedRectangleBorderRadius,
+                ),
+              ),
+              backgroundColor: Colors.deepPurple,
+            ),
+            child: Text('navigators', style: TextStyle(color: Colors.white)),
+          ),
+          ElevatedButton(
+            onPressed: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ListViewRoute(todos: todos),
+                ),
+              ),
+            },
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  UiField.roundedRectangleBorderRadius,
+                ),
+              ),
+              backgroundColor: Colors.deepPurple,
+            ),
+            child: Text('listview', style: TextStyle(color: Colors.white)),
           ),
         ],
       ),

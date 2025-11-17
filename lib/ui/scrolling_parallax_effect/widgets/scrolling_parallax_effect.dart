@@ -50,7 +50,10 @@ class ParallaxRecipe extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
       debugShowCheckedModeBanner: false,
-      home: const Scaffold(body: Center(child: ExampleParallax())),
+      home: Scaffold(
+        appBar: AppBar(title: Text('Scrolling Parallax Effect'),),
+        body: Center(child: ExampleParallax()),
+      ),
     );
   }
 }
