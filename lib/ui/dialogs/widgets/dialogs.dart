@@ -70,11 +70,11 @@ class AlertDialogUtil {
         ),
         actions: [
           CupertinoDialogAction(
-            child: Text('确定'),
+            child: Text('确定', style: TextStyle(color: Colors.blue)),
             onPressed: () => {Navigator.of(context).pop()},
           ),
           CupertinoDialogAction(
-            child: Text('取消'),
+            child: Text('取消', style: TextStyle(color: Colors.red)),
             onPressed: () => {Navigator.of(context).pop()},
           ),
         ],
