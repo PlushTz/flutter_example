@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plush/domain/models/routers/todo.dart';
+import 'package:flutter_plush/fields/ui_field.dart';
+import 'package:flutter_plush/utils/logger.dart';
+import 'package:flutter_plush/ui/state_management/widgets/state_management.dart';
 import 'package:flutter_plush/ui/dialogs/widgets/dialogs.dart';
 import 'package:flutter_plush/ui/floating_app_bar/widgets/floating_app_bar.dart';
 import 'package:flutter_plush/ui/layouts/widgets/layout.dart';
-import 'package:flutter_plush/logger.dart';
 import 'package:flutter_plush/ui/routers/widgets/first_route.dart';
-import 'package:flutter_plush/ui/routers/widgets/list_view_route.dart';
+import 'package:flutter_plush/ui/listview/widgets/listview.dart';
 import 'package:flutter_plush/ui/scrolling_parallax_effect/widgets/scrolling_parallax_effect.dart';
-import 'package:flutter_plush/state_management.dart';
-import 'package:flutter_plush/fields/ui_field.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 void main() {
@@ -235,7 +234,7 @@ class ContentState extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ListViewRoute(todos: todos),
+                  builder: (context) => ListViewRoute(todos: UiField.todos),
                 ),
               ),
             },
